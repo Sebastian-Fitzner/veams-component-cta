@@ -27,7 +27,7 @@ This component is based on the blueprint of Veams-Components.
 #### Import
 ``` js
 // @INSERT :: START @id: js-import, @tag: veams-component
-import Slider from './modules/cta/cta';
+import CTA from './modules/cta/cta';
 // @INSERT :: END
 ```
 
