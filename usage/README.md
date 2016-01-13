@@ -38,7 +38,7 @@ import CTA from './modules/cta/cta';
  * Init Slider
  */
 Helpers.loadModule({
-	el: '[data-js-module="cta"]',
+	domName: 'cta',
 	module: CTA,
 	context: context
 });
