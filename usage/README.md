@@ -27,7 +27,7 @@ This blueprint is based on the blueprint of Veams-Components.
 #### Import
 ``` js
 // @INSERT :: START @id: js-import, @tag: component
-import Call-To-Action from './modules/cta/cta';
+import CTA from './modules/cta/cta';
 // @INSERT :: END
 ```
 
