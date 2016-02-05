@@ -7,7 +7,7 @@ This blueprint is based on the blueprint of Veams-Components.
 ### Include: Page
 
 ``` hbs
-// @INSERT :: START @id: component, @tag: component
+{{! @INSERT :: START @id: component, @tag: component-partial }}
 {{#with cta-bp}}
 	{{> c-cta}}
 {{/with}}
@@ -17,7 +17,7 @@ This blueprint is based on the blueprint of Veams-Components.
 ### Include: SCSS
 
 ``` scss
-// @INSERT :: START @id: scss-import, @tag: component
+// @INSERT :: START @id: scss-import
 @import "components/_c-cta";
 // @INSERT :: END
 ```
@@ -26,14 +26,14 @@ This blueprint is based on the blueprint of Veams-Components.
 
 #### Import
 ``` js
-// @INSERT :: START @id: js-import, @tag: component
+// @INSERT :: START @id: js-import
 import CTA from './modules/cta/cta';
 // @INSERT :: END
 ```
 
 #### Initializing in Veams V2
 ``` js
-// @INSERT :: START @id: js-init-v2, @tag: component
+// @INSERT :: START @id: js-init-v2
 /**
  * Init Call-To-Action
  */
@@ -47,7 +47,7 @@ Helpers.loadModule({
 
 #### Initializing in Veams V3
 ``` js
-// @INSERT :: START @id: js-init-v3, @tag: component
+// @INSERT :: START @id: js-init-v3
 /**
  * Init Call-To-Action
  */
