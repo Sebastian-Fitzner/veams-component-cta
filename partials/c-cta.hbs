@@ -30,7 +30,7 @@ CTAs can be used everywhere you have to add complex buttons or need a custom tri
 	{{#if ctaDownload}} target="_blank"{{/if}}
 	{{#if ctaJsAtom}} data-js-atom="{{ctaJsAtom}}"{{/if}}
 	{{#if ctaJsModule}} data-js-module="cta" data-js-options='{
-	{{#each ctaJsOptions}}"{{ctaKey}}": {{#unless ctaObject}}"{{/unless}}{{{ctaValue}}}{{#unless ctaObject}}"{{/unless}}{{#if @last}}{{else}}, {{/if}}{{/each}}
+	{{#each jsOptions}}"{{jsKey}}": {{#unless jsObject}}"{{/unless}}{{{jsValue}}}{{#unless jsObject}}"{{/unless}}{{#if @last}}{{else}}, {{/if}}{{/each}}
 	}'{{/if}}>
 	{{#isnt ctaIcon false}}
 		<span class="cta__icon"></span> {{/isnt}}
