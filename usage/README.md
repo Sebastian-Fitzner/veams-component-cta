@@ -7,7 +7,7 @@ This blueprint is based on the blueprint of Veams-Components.
 ### Include: Page
 
 ``` hbs
-{{! @INSERT :: START @id: component, @tag: component-partial }}
+{{! @INSERT :: START @id: cta, @tag: component-partial }}
 {{#with cta-bp.simple}}
 	{{> c-cta}}
 {{/with}}
