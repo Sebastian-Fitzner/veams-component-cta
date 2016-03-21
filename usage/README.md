@@ -58,3 +58,16 @@ Helpers.loadModule({
 });
 // @INSERT :: END
 ```
+
+#### Custom Events
+``` js
+// @INSERT :: START @tag: js-events //
+/**
+ * Events Call-To-Action
+ */
+EVENTS.cta = {
+	open: 'cta:open',
+	close: 'cta:close'
+};
+// @INSERT :: END
+```
