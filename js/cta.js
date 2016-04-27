@@ -24,6 +24,7 @@ class CTA extends AppModule {
 		let options = {
 			activeClass: 'is-active',
 			context: false,
+			globalEvent: 'cta:click',
 			singleOpen: false
 		};
 		super(obj, options);
