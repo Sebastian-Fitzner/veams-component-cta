@@ -1,3 +1,6 @@
+### v1.0.7
+- added default for globalEvents
+
 ### v1.0.6
 - use corresponding js module namespace for events
 - updated events section in usage/README.md
