@@ -1,3 +1,7 @@
+### v1.1.0
+- removed accordion functionality
+- refactoring
+
 ### v1.0.7
 - added default for globalEvents
 

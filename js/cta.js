@@ -1,8 +1,10 @@
 /**
- * Represents a button with custom click handlers.
- * @module button
+ * Represents a button with global event emission.
  *
- * @author Sebastian Fitzner
+ * @module CTA
+ * @version v1.1.0
+ *
+ * @author Andy Gutsche
  */
 
 import Helpers from '../../utils/helpers';
@@ -21,13 +23,29 @@ class CTA extends AppModule {
 	 * @param {obj.options} obj - options which will be passed in as JSON object
 	 */
 	constructor(obj) {
+
 		let options = {
 			activeClass: 'is-active',
-			context: false,
-			globalEvent: 'cta:click',
-			singleOpen: false
+			closeLabel: false,
+			ctaContent: '[data-js-atom="cta-content"]',
+			globalEvent: false,
+			openLabel: false
 		};
+
 		super(obj, options);
+	}
+
+	/**
+	 * Get and set the active state.
+	 *
+	 * @param {boolean} state - active state
+	 */
+	get active() {
+		return this._active;
+	}
+
+	set active(state) {
+		this._active = state;
 	}
 
 	/**
@@ -35,7 +53,19 @@ class CTA extends AppModule {
 	 *
 	 */
 	initialize() {
+
+		if (!this.options.globalEvent) {
+			console.warn('CTA: this.options.globalEvent not set - seems to be my day off :)');
+
+			return;
+		}
+
+		this.$ctaContent = $(this.options.ctaContent, this.$el);
 		super.initialize();
+
+		if (this.$el.is('.' + this.options.activeClass)) {
+			this.active = true;
+		}
 	}
 
 	/**
@@ -44,97 +74,81 @@ class CTA extends AppModule {
 	 * Listen to open and close events
 	 */
 	bindEvents() {
-		let close = this.close.bind(this);
-		let open = this.open.bind(this);
 		let onClick = this.onClick.bind(this);
-
-		// Global events
-		App.Vent.on(App.EVENTS.cta.close, close);
-		App.Vent.on(App.EVENTS.cta.open, open);
 
 		// Local events
 		this.$el.on(App.clickHandler, onClick);
 	}
 
 	/**
-	 * Handle classes
-	 *
-	 * Trigger events so that each button can listen to that and react by option singleOpen
-	 */
-	handleClasses() {
-		this.$el.is('.' + this.options.activeClass) ? App.Vent.trigger(App.EVENTS.cta.close, {
-			'el': this.$el
-		}) : App.Vent.trigger(App.EVENTS.cta.open, {
-			'el': this.$el
-		});
-	}
-
-	/**
 	 * Close method
 	 *
-	 * When the node is equal the object we remove the active class
+	 * Remove the active class, set label and trigger global event
 	 *
-	 * @param {obj} obj - the event object with our element
-	 * @param {obj} obj.el - element
+	 * @public
 	 */
-	close(obj) {
-		if (Helpers.checkNodeEquality(this.$el[0], obj.el[0])) {
-			if (this.options.activeClass) this.$el.removeClass(this.options.activeClass);
-			if (this.options.context) this.$el.closest(this.options.context).removeClass(this.options.activeClass);
+	close() {
+
+		if (this.options.closeLabel) {
+			this.$ctaContent.text(this.options.closeLabel);
 		}
+
+		this.$el.removeClass(this.options.activeClass);
+		this.active = false;
+
+		this.triggerGlobalEvent();
 	}
 
 	/**
 	 * Open method
 	 *
-	 * When the node is equal the object we add the active class
-	 * When furthermore the options singleOpen is defined,
-	 * we remove all active classes on elements in the same context
+	 * Add the active class, set label and trigger global event
 	 *
-	 * @param {obj} obj - the event object with our element
-	 * @param {obj} obj.el - element
+	 * @public
 	 */
-	open(obj) {
-		if (Helpers.checkNodeEquality(this.$el[0], obj.el[0])) {
-			if (this.options.activeClass) this.$el.addClass(this.options.activeClass);
-			if (this.options.context) this.$el.closest(this.options.context).addClass(this.options.activeClass);
-		} else {
-			if (Helpers.checkElementInContext(obj.el, this.options.context) && this.options.singleOpen === "true") {
-				if (this.options.activeClass) this.$el.removeClass(this.options.activeClass);
-			}
+	open() {
+
+		if (this.options.openLabel) {
+			this.$ctaContent.text(this.options.openLabel);
 		}
+
+		this.$el.addClass(this.options.activeClass);
+		this.active = true;
+
+		this.triggerGlobalEvent();
+	}
+
+
+	/**
+	 * Global event trigger method
+	 *
+	 * Trigger global event
+	 */
+	triggerGlobalEvent() {
+
+		App.Vent.trigger(this.options.globalEvent, {
+			el: this.el,
+			isActive: this.active,
+			options: this.options
+		});
 	}
 
 	/**
 	 * Click event method
 	 *
-	 * This method should be overriden when you want to use the button view
-	 * @see button-init.js
+	 * Handles click
 	 *
 	 * @param {event} e - event object
 	 */
 	onClick(e) {
 		e.preventDefault();
 
-		if (typeof this.clickHandler === 'function') {
-			this.clickHandler.apply(this, arguments);
-			if (this.options.activeClass) this.handleClasses();
-		} else {
-			console.log('You need to inherit from ' + this + ' and override the onClick method or pass a function to ' + this + '.clickHandler !');
+		if (this.active) {
+			this.close();
 		}
-	}
-
-	/**
-	 * Click handler
-	 *
-	 * This method is public and can be overridden by
-	 * other instances to support a generic button module
-	 */
-	clickHandler() {
-		App.Vent.trigger(this.options.globalEvent, {
-			el: this.$el,
-			options: this.options
-		});
+		else {
+			this.open();
+		}
 	}
 }
 
