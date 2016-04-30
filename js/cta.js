@@ -2,7 +2,7 @@
  * Represents a button with global event emission.
  *
  * @module CTA
- * @version v1.1.0
+ * @version v1.1.1
  *
  * @author Andy Gutsche
  */
@@ -33,6 +33,17 @@ class CTA extends AppModule {
 		};
 
 		super(obj, options);
+		App.registerModule && App.registerModule(CTA.info);
+	}
+
+	/**
+	 * Get module information
+	 */
+	static get info() {
+		return {
+			name: 'CTA',
+			version: '1.1.1'
+		};
 	}
 
 	/**

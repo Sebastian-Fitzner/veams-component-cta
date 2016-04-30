@@ -1,3 +1,6 @@
+### v1.1.1
+- added global module registry
+
 ### v1.1.0
 - removed accordion functionality
 - refactoring
