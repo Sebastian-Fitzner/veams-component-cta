@@ -2,7 +2,7 @@
  * Represents a button with global event emission.
  *
  * @module CTA
- * @version v1.1.1
+ * @version v1.1.2
  *
  * @author Andy Gutsche
  */
@@ -42,7 +42,9 @@ class CTA extends AppModule {
 	static get info() {
 		return {
 			name: 'CTA',
-			version: '1.1.1'
+			version: '1.1.2',
+			vc: true,
+			mod: false // set to true if source was modified in project
 		};
 	}
 

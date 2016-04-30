@@ -1,6 +1,6 @@
 {
 	"name": "veams-component-cta",
-	"version": "1.1.1",
+	"version": "1.1.2",
 	"ignore": [
 		".bowerrc",
 		".gitignore",
@@ -10,6 +10,10 @@
 		{
 			"name": "Sebastian Fitzner",
 			"email": "sebastian@veams.org"
+		},
+		{
+			"name": "Andy Gutsche",
+			"email": "andy@veams.org"
 		}
 	],
 	"repository": {

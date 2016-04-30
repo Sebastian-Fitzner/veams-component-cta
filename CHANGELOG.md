@@ -1,3 +1,6 @@
+### v1.1.2
+- updated module registry info
+
 ### v1.1.1
 - added global module registry
 
