@@ -1,9 +1,10 @@
 /**
- * Represents a button with global event emission.
+ * Represents a button with custom click handlers.
  *
  * @module CTA
- * @version v1.1.2
+ * @version v1.1.3
  *
+ * @author Sebastian Fitzner
  * @author Andy Gutsche
  */
 
@@ -23,12 +24,11 @@ class CTA extends AppModule {
 	 * @param {obj.options} obj - options which will be passed in as JSON object
 	 */
 	constructor(obj) {
-
 		let options = {
 			activeClass: 'is-active',
 			closeLabel: false,
 			ctaContent: '[data-js-atom="cta-content"]',
-			globalEvent: false,
+			globalEvent: 'cta:click',
 			openLabel: false
 		};
 
@@ -42,7 +42,7 @@ class CTA extends AppModule {
 	static get info() {
 		return {
 			name: 'CTA',
-			version: '1.1.2',
+			version: '1.1.3',
 			vc: true,
 			mod: false // set to true if source was modified in project
 		};
@@ -66,19 +66,13 @@ class CTA extends AppModule {
 	 *
 	 */
 	initialize() {
-
-		if (!this.options.globalEvent) {
-			console.warn('CTA: this.options.globalEvent not set - seems to be my day off :)');
-
-			return;
-		}
-
 		this.$ctaContent = $(this.options.ctaContent, this.$el);
-		super.initialize();
 
 		if (this.$el.is('.' + this.options.activeClass)) {
 			this.active = true;
 		}
+
+		super.initialize();
 	}
 
 	/**
@@ -101,15 +95,12 @@ class CTA extends AppModule {
 	 * @public
 	 */
 	close() {
-
 		if (this.options.closeLabel) {
 			this.$ctaContent.text(this.options.closeLabel);
 		}
 
 		this.$el.removeClass(this.options.activeClass);
 		this.active = false;
-
-		this.triggerGlobalEvent();
 	}
 
 	/**
@@ -127,41 +118,45 @@ class CTA extends AppModule {
 
 		this.$el.addClass(this.options.activeClass);
 		this.active = true;
-
-		this.triggerGlobalEvent();
-	}
-
-
-	/**
-	 * Global event trigger method
-	 *
-	 * Trigger global event
-	 */
-	triggerGlobalEvent() {
-
-		App.Vent.trigger(this.options.globalEvent, {
-			el: this.el,
-			isActive: this.active,
-			options: this.options
-		});
 	}
 
 	/**
 	 * Click event method
 	 *
-	 * Handles click
+	 * This method should be overriden when you want to use the button view
+	 * @see button-init.js
 	 *
 	 * @param {event} e - event object
 	 */
 	onClick(e) {
 		e.preventDefault();
 
-		if (this.active) {
-			this.close();
+		if (typeof this.clickHandler === 'function') {
+			if (this.active) {
+				this.close();
+			}
+			else {
+				this.open();
+			}
+
+			this.clickHandler.apply(this, arguments);
+		} else {
+			console.log('You need to inherit from ' + this + ' and override the onClick method or pass a function to ' + this + '.clickHandler !');
 		}
-		else {
-			this.open();
-		}
+	}
+
+	/**
+	 * Click handler
+	 *
+	 * This method is public and can be overridden by
+	 * other instances to support a generic button module
+	 */
+	clickHandler() {
+		App.Vent.trigger(this.options.globalEvent, {
+			el: this.el,
+			isActive: this.active,
+			options: this.options
+		});
 	}
 }
 

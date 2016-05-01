@@ -1,3 +1,6 @@
+### v1.1.3
+- re-added custom clickhandler
+
 ### v1.1.2
 - updated module registry info
 
