@@ -1,3 +1,6 @@
+### v1.1.4
+- added node to global module registry
+
 ### v1.1.3
 - re-added custom clickhandler
 
