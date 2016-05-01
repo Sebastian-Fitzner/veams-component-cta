@@ -2,7 +2,7 @@
  * Represents a button with custom click handlers.
  *
  * @module CTA
- * @version v1.1.3
+ * @version v1.1.5
  *
  * @author Sebastian Fitzner
  * @author Andy Gutsche
@@ -33,7 +33,7 @@ class CTA extends AppModule {
 		};
 
 		super(obj, options);
-		App.registerModule && App.registerModule(CTA.info);
+		App.registerModule && App.registerModule(CTA.info, this.el);
 	}
 
 	/**
@@ -42,7 +42,7 @@ class CTA extends AppModule {
 	static get info() {
 		return {
 			name: 'CTA',
-			version: '1.1.3',
+			version: '1.1.5',
 			vc: true,
 			mod: false // set to true if source was modified in project
 		};
