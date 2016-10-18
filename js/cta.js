@@ -2,7 +2,7 @@
  * Represents a button with custom click handlers.
  *
  * @module CTA
- * @version v2.0.0
+ * @version v2.0.1
  *
  * @author Sebastian Fitzner
  * @author Andy Gutsche
@@ -26,10 +26,10 @@ class CTA extends AppModule {
 	constructor(obj) {
 		let options = {
 			activeClass: 'is-active',
-			closeLabel: false,
+			closeLabel: null,
 			ctaContent: '[data-js-atom="cta-content"]',
 			globalEvent: 'cta:click',
-			openLabel: false
+			openLabel: null
 		};
 
 		super(obj, options);
@@ -42,7 +42,7 @@ class CTA extends AppModule {
 	static get info() {
 		return {
 			name: 'CTA',
-			version: '2.0.0',
+			version: '2.0.1',
 			vc: true,
 			mod: false // set to true if source was modified in project
 		};

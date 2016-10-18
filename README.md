@@ -4,7 +4,7 @@ This blueprint is based on the blueprint of Veams-Components.
 
 ## Version
 
-Latest version is ```v2.0.0```
+Latest version is ```v2.0.1```
 
 ## Requirements
 
@@ -16,7 +16,7 @@ Latest version is ```v2.0.0```
 ### Options:
 
 #### closeLabel
-`Type: string` | `Default: false`
+`Type: string` | `Default: null`
 
 Optional toggle button label for closed state
 
@@ -26,7 +26,7 @@ Optional toggle button label for closed state
 Global event triggered on click
 
 #### openLabel
-`Type: string` | `Default: false`
+`Type: string` | `Default: null`
 
 Optional toggle button label for opened state
 
