@@ -2,7 +2,28 @@
 
 This blueprint is based on the blueprint of Veams-Components.
 
+## Version
+
+Latest version is ```v2.0.0```
+
 ## Usage
+
+### Options:
+
+#### closeLabel
+`Type: string` | `Default: false`
+
+Optional toggle button label for closed state
+
+#### globalEvent
+`Type: string` | `Default: 'cta:click'`
+
+Global event triggered on click
+
+#### openLabel
+`Type: string` | `Default: false`
+
+Optional toggle button label for opened state
 
 ### Include: Page
 

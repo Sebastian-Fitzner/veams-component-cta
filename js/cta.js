@@ -2,7 +2,7 @@
  * Represents a button with custom click handlers.
  *
  * @module CTA
- * @version v1.1.5
+ * @version v2.0.0
  *
  * @author Sebastian Fitzner
  * @author Andy Gutsche
@@ -42,7 +42,7 @@ class CTA extends AppModule {
 	static get info() {
 		return {
 			name: 'CTA',
-			version: '1.1.5',
+			version: '2.0.0',
 			vc: true,
 			mod: false // set to true if source was modified in project
 		};
@@ -81,10 +81,10 @@ class CTA extends AppModule {
 	 * Listen to open and close events
 	 */
 	bindEvents() {
-		let onClick = this.onClick.bind(this);
+		let fnOnClick = this.onClick.bind(this);
 
 		// Local events
-		this.$el.on(App.clickHandler, onClick);
+		this.$el.on(App.clickHandler, fnOnClick);
 	}
 
 	/**

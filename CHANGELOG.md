@@ -1,3 +1,6 @@
+### v2.0.0
+- make module compatible with VeamsQuery
+
 ### v1.1.5
 - added node to global module registry
 
