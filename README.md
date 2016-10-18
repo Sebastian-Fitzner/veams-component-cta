@@ -2,7 +2,28 @@
 
 This blueprint is based on the blueprint of Veams-Components.
 
+## Version
+
+Latest version is ```v2.0.0```
+
 ## Usage
+
+### Options:
+
+#### closeLabel
+`Type: string` | `Default: false`
+
+Optional toggle button label for closed state
+
+#### globalEvent
+`Type: string` | `Default: 'cta:click'`
+
+Global event triggered on click
+
+#### openLabel
+`Type: string` | `Default: false`
+
+Optional toggle button label for opened state
 
 ### Include: Page
 
@@ -17,7 +38,7 @@ This blueprint is based on the blueprint of Veams-Components.
 ### Include: SCSS
 
 ``` scss
-// @INSERT :: START @tag: scss-import 
+// @INSERT :: START @tag: scss-import
 @import "components/_c-cta";
 // @INSERT :: END
 ```
@@ -26,14 +47,14 @@ This blueprint is based on the blueprint of Veams-Components.
 
 #### Import
 ``` js
-// @INSERT :: START @tag: js-import 
+// @INSERT :: START @tag: js-import
 import CTA from './modules/cta/cta';
 // @INSERT :: END
 ```
 
 #### Initializing in Veams V2
 ``` js
-// @INSERT :: START @tag: js-init-v2 
+// @INSERT :: START @tag: js-init-v2
 /**
  * Init Call-To-Action
  */
@@ -47,7 +68,7 @@ Helpers.loadModule({
 
 #### Initializing in Veams V3
 ``` js
-// @INSERT :: START @tag: js-init-v3  
+// @INSERT :: START @tag: js-init-v3
 /**
  * Init Call-To-Action
  */
