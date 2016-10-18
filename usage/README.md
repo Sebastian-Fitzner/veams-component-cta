@@ -6,6 +6,11 @@ This blueprint is based on the blueprint of Veams-Components.
 
 Latest version is ```v2.0.0```
 
+## Requirements
+
+### JavaScript
+- `Veams-JS >= v3.6.0`
+
 ## Usage
 
 ### Options:
@@ -38,7 +43,7 @@ Optional toggle button label for opened state
 ### Include: SCSS
 
 ``` scss
-// @INSERT :: START @tag: scss-import 
+// @INSERT :: START @tag: scss-import
 @import "components/_c-cta";
 // @INSERT :: END
 ```
@@ -47,14 +52,14 @@ Optional toggle button label for opened state
 
 #### Import
 ``` js
-// @INSERT :: START @tag: js-import 
+// @INSERT :: START @tag: js-import
 import CTA from './modules/cta/cta';
 // @INSERT :: END
 ```
 
 #### Initializing in Veams V2
 ``` js
-// @INSERT :: START @tag: js-init-v2 
+// @INSERT :: START @tag: js-init-v2
 /**
  * Init Call-To-Action
  */
@@ -68,7 +73,7 @@ Helpers.loadModule({
 
 #### Initializing in Veams V3
 ``` js
-// @INSERT :: START @tag: js-init-v3  
+// @INSERT :: START @tag: js-init-v3
 /**
  * Init Call-To-Action
  */
