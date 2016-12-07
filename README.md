@@ -1,86 +1,70 @@
+<p align="right">
+    <a href="https://badge.fury.io/bo/veams-component-cta"><img src="https://badge.fury.io/bo/veams-component-cta.svg" alt="Bower version" height="20"></a>
+    <a href="https://gitter.im/Sebastian-Fitzner/Veams?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge"><img src="https://badges.gitter.im/Sebastian-Fitzner/Veams.svg" alt="Gitter Chat" /></a>
+</p>
+
+
 # Call-To-Action
 
-This blueprint is based on the blueprint of Veams-Components.
+## Description
 
-## Version
+The CTA component is a powerful one. It can be used as simple link or button component. 
+But it can also be used as `data-js-atom` in other components or as `data-js-module`.
 
-Latest version is ```v2.0.1```
+When you are using this component as `data-js-module` the component can fire global events. 
+That means you can just listen in other modules on this event and work with the provided data. 
 
-## Requirements
+Nice examples for the cta component as `data-js-module` are: 
 
-### JavaScript
-- `Veams-JS >= v3.6.0`
+- a simple toggler (mobile navigation, search toggler)
+- overlay opener with custom data 
 
-## Usage
+-----------
 
-### Options:
+## Installation 
 
-#### closeLabel
-`Type: string` | `Default: null`
+### Installation with Veams
 
-Optional toggle button label for closed state
+`veams install vc cta`
 
-#### globalEvent
-`Type: string` | `Default: 'cta:click'`
+### Installation with Bower
 
-Global event triggered on click
+`bower install cta --save`
 
-#### openLabel
-`Type: string` | `Default: null`
+----------- 
 
-Optional toggle button label for opened state
+## Fields
 
-### Include: Page
+### `c-cta.hbs`
 
-``` hbs
-{{! @INSERT :: START @id: cta, @tag: component-partial }}
-{{#with cta-bp.simple}}
-	{{> c-cta}}
-{{/with}}
-{{! @INSERT :: END }}
-```
+#### Settings
 
-### Include: SCSS
+- settings.ctaButton {`Boolean`} [a] - _Define a button or link as cta._
+- settings.ctaContextClass {`String`} [default] - _Context class of the cta._
+- settings.ctaClass {`String`} - _Modifier classes for the cta._
+- settings.ctaTarget {`String`} - _You can define a target when using an a-tag._
+- settings.ctaJsAtom {`String`} - _You can add this component as data-js-atom._
+- settings.ctaJsModule {`Boolean`} - _You can add this component as data-js-module._
+- settings.ctaJsOptions {`Object`} - _You can add options to the cta. This object get stringified in your mark-up._
 
-``` scss
-// @INSERT :: START @tag: scss-import
-@import "components/_c-cta";
-// @INSERT :: END
-```
+#### Content 
 
-### Include: JavaScript
+- content.ctaTitle {`String`} - _You should define a title when using an a-tag._
 
-#### Import
-``` js
-// @INSERT :: START @tag: js-import
-import CTA from './modules/cta/cta';
-// @INSERT :: END
-```
+### `c-cta__content.hbs`
 
-#### Initializing in Veams V2
-``` js
-// @INSERT :: START @tag: js-init-v2
-/**
- * Init Call-To-Action
- */
-Helpers.loadModule({
-	el: '[data-js-module="cta"]',
-	module: CTA,
-	context: context
-});
-// @INSERT :: END
-```
+#### Settings
 
-#### Initializing in Veams V3
-``` js
-// @INSERT :: START @tag: js-init-v3
-/**
- * Init Call-To-Action
- */
-Helpers.loadModule({
-	domName: 'cta',
-	module: CTA,
-	context: context
-});
-// @INSERT :: END
-```
+- settings.ctaIcon {`Boolean`} - _Renders `.cta__icon` into the mark-up if set to true._
+
+#### Content
+
+- content.ctaContent {`String`} - _Content of the cta._
+
+------------
+
+## JavaScript Options
+
+- activeClass {`String`} [is-active] - _Active class for cta if its clicked._
+- clickHandler {`String`} [click] - _Click handler like touchstart._
+- globalEvent {`String`} [cta:click] - _Global event triggered on click._

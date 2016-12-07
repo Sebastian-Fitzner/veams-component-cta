@@ -2,15 +2,17 @@
  * Represents a button with custom click handlers.
  *
  * @module CTA
- * @version v2.0.1
+ * @version v2.1.0
  *
  * @author Sebastian Fitzner
  * @author Andy Gutsche
  */
 
-import Helpers from '../../utils/helpers';
-import App from '../../app';
-import AppModule from '../_global/module';
+/**
+ * Requirements
+ */
+import App from 'app';
+import AppModule from 'app-module';
 const $ = App.$;
 
 class CTA extends AppModule {
@@ -19,17 +21,15 @@ class CTA extends AppModule {
 	 *
 	 * @see module.js
 	 *
-	 * @param {obj} obj - Object which is passed to our class
-	 * @param {obj.el} obj - element which will be saved in this.el
-	 * @param {obj.options} obj - options which will be passed in as JSON object
+	 * @param {Object} obj - Object which is passed to our class
+	 * @param {Object} obj.el - element which will be saved in this.el
+	 * @param {Object} obj.options - options which will be passed in as JSON object
 	 */
 	constructor(obj) {
 		let options = {
 			activeClass: 'is-active',
-			closeLabel: null,
-			ctaContent: '[data-js-atom="cta-content"]',
-			globalEvent: 'cta:click',
-			openLabel: null
+			clickHandler: 'click',
+			globalEvent: 'cta:click'
 		};
 
 		super(obj, options);
@@ -42,7 +42,7 @@ class CTA extends AppModule {
 	static get info() {
 		return {
 			name: 'CTA',
-			version: '2.0.1',
+			version: '2.1.0',
 			vc: true,
 			mod: false // set to true if source was modified in project
 		};
@@ -66,8 +66,6 @@ class CTA extends AppModule {
 	 *
 	 */
 	initialize() {
-		this.$ctaContent = $(this.options.ctaContent, this.$el);
-
 		if (this.$el.is('.' + this.options.activeClass)) {
 			this.active = true;
 		}
@@ -84,7 +82,7 @@ class CTA extends AppModule {
 		let fnOnClick = this.onClick.bind(this);
 
 		// Local events
-		this.$el.on(App.clickHandler, fnOnClick);
+		this.$el.on(this.options.clickHandler, fnOnClick);
 	}
 
 	/**
@@ -95,10 +93,6 @@ class CTA extends AppModule {
 	 * @public
 	 */
 	close() {
-		if (this.options.closeLabel) {
-			this.$ctaContent.text(this.options.closeLabel);
-		}
-
 		this.$el.removeClass(this.options.activeClass);
 		this.active = false;
 	}
@@ -111,11 +105,6 @@ class CTA extends AppModule {
 	 * @public
 	 */
 	open() {
-
-		if (this.options.openLabel) {
-			this.$ctaContent.text(this.options.openLabel);
-		}
-
 		this.$el.addClass(this.options.activeClass);
 		this.active = true;
 	}

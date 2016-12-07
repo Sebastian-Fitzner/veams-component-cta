@@ -1,3 +1,8 @@
+### v2.1.0
+- Refactor whole structure
+- Change template to wrapWith
+- Add simple cta__content partial
+
 ### v2.0.1
 - use `null` instead of `false` for empty values in options
 
