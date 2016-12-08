@@ -29,7 +29,7 @@ Nice examples for the cta component as `data-js-module` are:
 
 ### Installation with Bower
 
-`bower install cta --save`
+`bower install veams-component-cta --save`
 
 ----------- 
 
