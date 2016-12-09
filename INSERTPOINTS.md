@@ -3,8 +3,12 @@
 
 ``` hbs
 {{! @INSERT :: START @id: cta, @tag: component-partial }}
-{{#with cta-bp.simple}}
-	{{> c-cta}}
+{{#with cta-bp.variations.simple}}
+    {{! WrapWith START: CTA }}
+    {{#wrapWith "c-cta" settings=this.settings content=this.content}}
+        {{> c-cta__content this.content}}
+    {{/wrapWith}}
+    {{! WrapWith END: CTA }}
 {{/with}}
 {{! @INSERT :: END }}
 ```
