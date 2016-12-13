@@ -20,7 +20,7 @@
 @import "components/_c-cta";
 // @INSERT :: END
 
-// @INSERT :: START @tag: scss-import-self-contained // 
+// @INSERT :: START @tag: scss-self-contained-import // 
 @import "../templating/partials/components/cta/scss/_c-cta";
 // @INSERT :: END
 ```
@@ -33,7 +33,7 @@
 import CTA from './modules/cta/cta';
 // @INSERT :: END
 
-// @INSERT :: START @tag: js-import-self-contained //
+// @INSERT :: START @tag: js-self-contained-import //
 import CTA from '../templating/partials/components/cta/js/cta';
 // @INSERT :: END
 ```
