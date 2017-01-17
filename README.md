@@ -55,6 +55,7 @@ Nice examples for the cta component as `data-js-module` are:
 #### Settings
 
 - settings.ctaIcon {`Boolean`} - _Renders `.cta__icon` into the mark-up if set to true._
+- settings.ctaContentJsItem {`Boolean`} - _Renders `data-js-item="cta-content"` into the mark-up if set to true._
 
 #### Content
 
@@ -66,4 +67,6 @@ Nice examples for the cta component as `data-js-module` are:
 
 - activeClass {`String`} [is-active] - _Active class for cta if its clicked._
 - clickHandler {`String`} [click] - _Click handler like touchstart._
+- closedLabel {`String`} [null] - _Optional label for button while not active._
 - globalEvent {`String`} [cta:click] - _Global event triggered on click._
+- openedLabel {`String`} [null] - _Optional label for button while active._

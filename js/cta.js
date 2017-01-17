@@ -2,7 +2,7 @@
  * Represents a button with custom click handlers.
  *
  * @module CTA
- * @version v2.1.0
+ * @version v2.2.0
  *
  * @author Sebastian Fitzner
  * @author Andy Gutsche
@@ -29,7 +29,10 @@ class CTA extends AppModule {
 		let options = {
 			activeClass: 'is-active',
 			clickHandler: 'click',
-			globalEvent: 'cta:click'
+			closedLabel: null,
+			ctaContent: '[data-js-item="cta-content"]',
+			globalEvent: 'cta:click',
+			openedLabel: null
 		};
 
 		super(obj, options);
@@ -42,7 +45,7 @@ class CTA extends AppModule {
 	static get info() {
 		return {
 			name: 'CTA',
-			version: '2.1.0',
+			version: '2.2.0',
 			vc: true,
 			mod: false // set to true if source was modified in project
 		};
@@ -66,6 +69,19 @@ class CTA extends AppModule {
 	 *
 	 */
 	initialize() {
+		this.$ctaContent = $(this.options.ctaContent, this.$el);
+
+		if (this.options.closedLabel && !this.options.openedLabel ||
+				!this.options.closedLabel && this.options.openedLabel) {
+			console.warn('CTA: You have to set closedLabel and openedLabel or none.');
+		}
+		else {
+			if (this.options.closedLabel && this.options.openedLabel && !this.$ctaContent.length) {
+				console.warn('CTA: Labels set, but ' + this.options.ctaContent +
+						' not found, please make sure settings.ctaContentJsItem is set to true for c-cta__content.');
+			}
+		}
+
 		if (this.$el.is('.' + this.options.activeClass)) {
 			this.active = true;
 		}
@@ -93,6 +109,11 @@ class CTA extends AppModule {
 	 * @public
 	 */
 	close() {
+		if (this.options.closedLabel) {
+			this.$ctaContent.text(this.options.closedLabel);
+			this.$el.attr('title', this.options.closedLabel);
+		}
+
 		this.$el.removeClass(this.options.activeClass);
 		this.active = false;
 	}
@@ -105,6 +126,11 @@ class CTA extends AppModule {
 	 * @public
 	 */
 	open() {
+		if (this.options.openedLabel) {
+			this.$ctaContent.text(this.options.openedLabel);
+			this.$el.attr('title', this.options.openedLabel);
+		}
+
 		this.$el.addClass(this.options.activeClass);
 		this.active = true;
 	}
@@ -130,7 +156,9 @@ class CTA extends AppModule {
 
 			this.clickHandler.apply(this, arguments);
 		} else {
-			console.log('You need to inherit from ' + this + ' and override the onClick method or pass a function to ' + this + '.clickHandler !');
+			console.warn('CTA: You need to inherit from ' + this +
+					' and override the onClick method or pass a function to ' +
+					this + '.clickHandler !');
 		}
 	}
 

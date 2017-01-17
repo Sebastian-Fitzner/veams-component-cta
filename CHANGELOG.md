@@ -1,3 +1,12 @@
+### v2.2.0
+- Add option for closedLabel and openedLabel
+
+### v2.1.2
+- Update INSERTPOINTS
+
+### v2.1.1
+- Enhance Insertpoints and Readme
+
 ### v2.1.0
 - Refactor whole structure
 - Change template to wrapWith
