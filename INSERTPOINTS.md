@@ -38,30 +38,14 @@ import CTA from '../templating/partials/components/cta/js/cta';
 // @INSERT :: END
 ```
 
-#### Initializing in Veams V2
+#### Initializing in Veams V5
 ``` js
-// @INSERT :: START @tag: js-init-v2 // 
-/**
- * Init Call-To-Action
- */
-Helpers.loadModule({
-	el: '[data-js-module="cta"]',
-	module: CTA,
-	context: context
-});
-// @INSERT :: END
-```
-
-#### Initializing in Veams V3 or V4
-``` js
-// @INSERT :: START @tag: js-init-v3 // 
-/**
- * Init Call-To-Action
- */
-Helpers.loadModule({
-	domName: 'cta',
-	module: CTA,
-	context: context
-});
-// @INSERT :: END
+// @INSERT :: START @tag: js-init-v5 //
+ 	,
+ 	// Init Call-To-Action
+ 	{
+ 		namespace: 'cta',
+ 		module: CTA
+ 	}
+// @INSERT :: END //
 ```

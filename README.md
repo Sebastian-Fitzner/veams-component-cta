@@ -20,6 +20,11 @@ Nice examples for the cta component as `data-js-module` are:
 
 -----------
 
+## Requirements
+- `Veams >= v5.0.0` - Veams Framework.
+
+-----------
+
 ## Installation 
 
 ### Installation with Veams

@@ -2,7 +2,7 @@
  * Represents a button with custom click handlers.
  *
  * @module CTA
- * @version v2.2.0
+ * @version v3.0.0
  *
  * @author Sebastian Fitzner
  * @author Andy Gutsche
@@ -11,11 +11,11 @@
 /**
  * Requirements
  */
-import App from 'app';
-import AppModule from 'app-module';
-const $ = App.$;
+import {Veams} from 'app';
+import VeamsComponent from 'veams/src/js/common/component';
+const $ = Veams.$;
 
-class CTA extends AppModule {
+class CTA extends VeamsComponent {
 	/**
 	 * Constructor for our class
 	 *
@@ -36,16 +36,18 @@ class CTA extends AppModule {
 		};
 
 		super(obj, options);
-		App.registerModule && App.registerModule(CTA.info, this.el);
 	}
+
+	/** =================================================
+	 * GETTER & SETTER
+	 * ================================================ */
 
 	/**
 	 * Get module information
 	 */
 	static get info() {
 		return {
-			name: 'CTA',
-			version: '2.2.0',
+			version: '3.0.0',
 			vc: true,
 			mod: false // set to true if source was modified in project
 		};
@@ -64,6 +66,18 @@ class CTA extends AppModule {
 		this._active = state;
 	}
 
+	/** =================================================
+	 * EVENTS
+	 * ================================================ */
+	get events() {
+		return {
+			'{{this.options.clickHandler}}': 'onClick'
+		};
+	}
+
+	/** =================================================
+	 * STANDARD METHODS
+	 * ================================================= */
 	/**
 	 * Initialize the view and merge options
 	 *
@@ -72,35 +86,27 @@ class CTA extends AppModule {
 		this.$ctaContent = $(this.options.ctaContent, this.$el);
 
 		if (this.options.closedLabel && !this.options.openedLabel ||
-				!this.options.closedLabel && this.options.openedLabel) {
+			!this.options.closedLabel && this.options.openedLabel) {
 			console.warn('CTA: You have to set closedLabel and openedLabel or none.');
 		}
 		else {
 			if (this.options.closedLabel && this.options.openedLabel && !this.$ctaContent.length) {
 				console.warn('CTA: Labels set, but ' + this.options.ctaContent +
-						' not found, please make sure settings.ctaContentJsItem is set to true for c-cta__content.');
+					' not found, please make sure settings.ctaContentJsItem is set to true for c-cta__content.');
 			}
 		}
 
 		if (this.$el.is('.' + this.options.activeClass)) {
 			this.active = true;
 		}
-
-		super.initialize();
 	}
 
-	/**
-	 * Bind events
-	 *
-	 * Listen to open and close events
-	 */
-	bindEvents() {
-		let fnOnClick = this.onClick.bind(this);
-
-		// Local events
-		this.$el.on(this.options.clickHandler, fnOnClick);
+	render() {
+		return this;
 	}
-
+	/** =================================================
+	 * CUSTOM CTA METHODS
+	 * ================================================= */
 	/**
 	 * Close method
 	 *
@@ -157,8 +163,8 @@ class CTA extends AppModule {
 			this.clickHandler.apply(this, arguments);
 		} else {
 			console.warn('CTA: You need to inherit from ' + this +
-					' and override the onClick method or pass a function to ' +
-					this + '.clickHandler !');
+				' and override the onClick method or pass a function to ' +
+				this + '.clickHandler !');
 		}
 	}
 
@@ -167,9 +173,11 @@ class CTA extends AppModule {
 	 *
 	 * This method is public and can be overridden by
 	 * other instances to support a generic button module
+	 *
+	 * @public
 	 */
 	clickHandler() {
-		App.Vent.trigger(this.options.globalEvent, {
+		Veams.Vent.trigger(this.options.globalEvent, {
 			el: this.el,
 			isActive: this.active,
 			options: this.options

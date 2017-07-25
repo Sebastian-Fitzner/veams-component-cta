@@ -1,3 +1,6 @@
+### v3.0.0
+- Update source code to support Veams 5 framework
+
 ### v2.2.0
 - Add option for closedLabel and openedLabel
 
