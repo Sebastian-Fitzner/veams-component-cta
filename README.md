@@ -8,7 +8,7 @@
 ## Description
 
 The CTA component is a powerful one. It can be used as simple link or button component. 
-But it can also be used as `data-js-atom` in other components or as `data-js-module`.
+But it can also be used as `data-js-item` in other components or as `data-js-module`.
 
 When you are using this component as `data-js-module` the component can fire global events. 
 That means you can just listen in other modules on this event and work with the provided data. 
