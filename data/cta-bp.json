@@ -31,7 +31,7 @@
 				"ctaTarget": "#",
 				"ctaContextClass": "default",
 				"ctaClass": "class",
-				"ctaJsAtom": false,
+				"ctaJsItem": false,
 				"ctaJsModule": true,
 				"jsOptions": {
 					"globalEvent": "cta:alert",

@@ -47,7 +47,7 @@ Nice examples for the cta component as `data-js-module` are:
 - settings.ctaContextClass {`String`} [default] - _Context class of the cta._
 - settings.ctaClass {`String`} - _Modifier classes for the cta._
 - settings.ctaTarget {`String`} - _You can define a target when using an a-tag._
-- settings.ctaJsAtom {`String`} - _You can add this component as data-js-atom._
+- settings.ctaJsItem {`String`} - _You can add this component as data-js-item._
 - settings.ctaJsModule {`Boolean`} - _You can add this component as data-js-module._
 - settings.ctaJsOptions {`Object`} - _You can add options to the cta. This object get stringified in your mark-up._
 
@@ -73,5 +73,6 @@ Nice examples for the cta component as `data-js-module` are:
 - activeClass {`String`} [is-active] - _Active class for cta if its clicked._
 - clickHandler {`String`} [click] - _Click handler like touchstart._
 - closedLabel {`String`} [null] - _Optional label for button while not active._
+- ctaContent {`String`} ['[data-js-item="cta-content"]'] - _Element selector for cta content (used for updating button text)._
 - globalEvent {`String`} [cta:click] - _Global event triggered on click._
 - openedLabel {`String`} [null] - _Optional label for button while active._

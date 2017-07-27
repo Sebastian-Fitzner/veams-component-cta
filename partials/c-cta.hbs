@@ -8,7 +8,7 @@ publish: false
 	{{#if options.content.ctaTitle}} title="{{options.content.ctaTitle}}"{{/if}}
 	{{#if options.settings.ctaTarget}} href="{{options.settings.ctaTarget}}"{{/if}}
 	{{#if options.settings.ctaDownload}} target="_blank"{{/if}}
-	{{#if options.settings.ctaJsAtom}} data-js-atom="{{options.settings.ctaJsAtom}}"{{/if}}
+	{{#if options.settings.ctaJsItem}} data-js-item="{{options.settings.ctaJsItem}}"{{/if}}
 	{{#if options.settings.ctaJsModule}} data-js-module="cta" data-js-options='{{stringify options.settings.jsOptions}}'{{/if}}>
 	{{{yield}}}
 </{{#if options.settings.ctaButton}}button{{else}}a{{/if}}>

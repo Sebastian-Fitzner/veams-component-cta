@@ -1,3 +1,6 @@
+### v3.0.1
+- Rename `data-js-atom` to `data-js-item`
+
 ### v3.0.0
 - Update source code to support Veams 5 framework
 
