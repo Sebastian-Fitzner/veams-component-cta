@@ -16,12 +16,8 @@
 ### Include: SCSS
 
 ``` scss
-// @INSERT :: START @tag: scss-import //
-@import "components/_c-cta";
-// @INSERT :: END
-
 // @INSERT :: START @tag: scss-self-contained-import // 
-@import "../templating/partials/components/cta/scss/_c-cta";
+@import "../components/cta/scss/_c-cta";
 // @INSERT :: END
 ```
 
@@ -29,12 +25,8 @@
 
 #### Import
 ``` js
-// @INSERT :: START @tag: js-import //
-import CTA from './modules/cta/cta';
-// @INSERT :: END
-
 // @INSERT :: START @tag: js-self-contained-import //
-import CTA from '../templating/partials/components/cta/js/cta';
+import CTA from '../components/cta/js/cta';
 // @INSERT :: END
 ```
 
