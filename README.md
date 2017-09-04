@@ -1,5 +1,5 @@
 <p align="right">
-    <a href="https://badge.fury.io/bo/veams-component-cta"><img src="https://badge.fury.io/bo/veams-component-cta.svg" alt="Bower version" height="20"></a>
+<a href="https://badge.fury.io/js/veams-component-cta"><img src="https://badge.fury.io/js/veams-component-cta.svg" alt="npm version" height="18"></a>
     <a href="https://gitter.im/Sebastian-Fitzner/Veams?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge"><img src="https://badges.gitter.im/Sebastian-Fitzner/Veams.svg" alt="Gitter Chat" /></a>
 </p>
 
@@ -30,10 +30,6 @@ Nice examples for the cta component as `data-js-module` are:
 ### Installation with Veams
 
 `veams install vc cta`
-
-### Installation with Bower
-
-`bower install veams-component-cta --save`
 
 ----------- 
 
