@@ -1,0 +1,16 @@
+{
+	"type": "component",
+	"displayName": "c-cta",
+	"contextData": "cta-bp",
+	"layout": "lyt-docs",
+	"subTemplates": [
+		"c-cta.hbs",
+		"c-cta__content.hbs"
+	],
+	"scssFiles": [
+		"c-cta.scss"
+	],
+	"jsFiles": [
+		"cta.js"
+	]
+}

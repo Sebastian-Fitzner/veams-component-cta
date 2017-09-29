@@ -1,3 +1,4 @@
+## Usage
 
 ### Include: Page
 
@@ -13,24 +14,10 @@
 {{! @INSERT :: END }}
 ```
 
-### Include: SCSS
-
-``` scss
-// @INSERT :: START @tag: scss-self-contained-import // 
-@import "../components/cta/scss/_c-cta";
-// @INSERT :: END
-```
-
 ### Include: JavaScript
 
-#### Import
-``` js
-// @INSERT :: START @tag: js-self-contained-import //
-import CTA from '../components/cta/js/cta';
-// @INSERT :: END
-```
-
 #### Initializing in Veams V5
+
 ``` js
 // @INSERT :: START @tag: js-init-v5 //
  	,
