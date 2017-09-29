@@ -8,7 +8,7 @@
 		"c-cta__content.hbs"
 	],
 	"scssFiles": [
-		"c-cta.scss"
+		"_c-cta.scss"
 	],
 	"jsFiles": [
 		"cta.js"
