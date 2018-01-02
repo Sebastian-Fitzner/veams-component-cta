@@ -2,7 +2,7 @@
  * Represents a button with custom click handlers.
  *
  * @module CTA
- * @version v5.1.0
+ * @version v5.1.1
  *
  * @author Sebastian Fitzner
  * @author Andy Gutsche
@@ -47,7 +47,7 @@ class CTA extends VeamsComponent {
 	 */
 	static get info() {
 		return {
-			version: '5.1.0',
+			version: '5.1.1',
 			vc: true,
 			mod: false // set to true if source was modified in project
 		};

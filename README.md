@@ -35,7 +35,7 @@ Nice examples for the cta component as `data-js-module` are:
 
 ## Fields
 
-### `c-cta.hbs`
+### `cta.hbs`
 
 #### Settings
 
@@ -51,7 +51,7 @@ Nice examples for the cta component as `data-js-module` are:
 
 - content.ctaTitle {`String`} - _You should define a title when using an a-tag._
 
-### `c-cta__content.hbs`
+### `cta__content.hbs`
 
 #### Settings
 
