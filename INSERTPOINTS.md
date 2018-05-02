@@ -4,7 +4,7 @@
 
 ``` hbs
 {{! @INSERT :: START @id: cta, @tag: component-partial }}
-{{#with cta-bp.variations.simple}}
+{{#with cta.variations.simple}}
     {{! WrapWith START: CTA }}
     {{#wrapWith "cta" settings=this.settings content=this.content}}
         {{> cta__content this.content}}
@@ -16,11 +16,11 @@
 
 ### Include: JavaScript
 
-#### Initializing in Veams V5
+#### Initializing in Veams (@veams/plugin-modules v1.x)
 
 ``` js
-// @INSERT :: START @tag: js-init-v5 //
-	// Init Call-To-Action
-	Veams.modules.add({ namespace: 'cta', module: CTA });
+// @INSERT :: START @tag: js-init-@1 //
+// Init Call-To-Action
+Veams.modules.add({ namespace: 'cta', module: CTA });
 // @INSERT :: END //
 ```

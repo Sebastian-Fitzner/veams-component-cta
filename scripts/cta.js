@@ -2,7 +2,7 @@
  * Represents a button with custom click handlers.
  *
  * @module CTA
- * @version v5.1.1
+ * @version v1.0.0
  *
  * @author Sebastian Fitzner
  * @author Andy Gutsche
@@ -11,11 +11,18 @@
 /**
  * Requirements
  */
-import { Veams } from 'app.veams';
-import VeamsComponent from 'veams/lib/common/component';
-const $ = Veams.$;
+import $ from '@veams/query';
+import Component from '@veams/component';
 
-class CTA extends VeamsComponent {
+class CTA extends Component {
+	/**
+	 * General Properties
+	 */
+
+	// Elements in Markup
+	$el = $(this.el);
+	$ctaContent = $(this.options.ctaContent, this.$el);
+
 	/**
 	 * Constructor for our class
 	 *
@@ -47,7 +54,7 @@ class CTA extends VeamsComponent {
 	 */
 	static get info() {
 		return {
-			version: '5.1.1',
+			version: '1.0.0',
 			vc: true,
 			mod: false // set to true if source was modified in project
 		};
@@ -78,12 +85,7 @@ class CTA extends VeamsComponent {
 	/** =================================================
 	 * STANDARD METHODS
 	 * ================================================= */
-	/**
-	 * Initialize the view and merge options
-	 *
-	 */
-	initialize() {
-		this.$ctaContent = $(this.options.ctaContent, this.$el);
+	didMount() {
 
 		if (this.options.closedLabel && !this.options.openedLabel ||
 			!this.options.closedLabel && this.options.openedLabel) {
@@ -144,8 +146,7 @@ class CTA extends VeamsComponent {
 	/**
 	 * Click event method
 	 *
-	 * This method should be overriden when you want to use the button view
-	 * @see button-init.js
+	 * This method should be overridden when you want to use the button view
 	 *
 	 * @param {event} e - event object
 	 */
@@ -172,12 +173,12 @@ class CTA extends VeamsComponent {
 	 * Click handler
 	 *
 	 * This method is public and can be overridden by
-	 * other instances to support a generic button module
+	 * other instances to support a generic button module.
 	 *
 	 * @public
 	 */
 	clickHandler() {
-		Veams.Vent.trigger(this.options.globalEvent, {
+		this.context.Vent.trigger(this.options.globalEvent, {
 			el: this.el,
 			isActive: this.active,
 			options: this.options

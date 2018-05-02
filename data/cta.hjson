@@ -23,7 +23,7 @@
 		},
 		"withJs": {
 			"docs": {
-				"variationName": "CTA as trigger module (global event)",
+				"variationName": "CTA (global event)",
 				"sectionCenter": true
 			},
 			"settings": {
