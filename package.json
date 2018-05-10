@@ -1,6 +1,6 @@
 {
 	"name": "@veams/component-cta",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "The CTA component is a powerful one. It can be used as a simple link or button component.",
 	"repository": {
 		"type": "git",
