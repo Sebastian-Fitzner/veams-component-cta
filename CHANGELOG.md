@@ -1,5 +1,10 @@
 ## Namespaced Versions
 
+### v1.0.1
+
+- Add deps to component.
+- Update README to escape handlebars syntax.
+
 ### v1.0.0
 
 - Migrate to use 

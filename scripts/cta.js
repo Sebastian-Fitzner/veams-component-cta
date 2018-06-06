@@ -1,7 +1,7 @@
 /**
  * Represents a button with custom click handlers.
  *
- * @module CTA
+ * @module Cta
  * @version v1.0.0
  *
  * @author Sebastian Fitzner
@@ -14,7 +14,7 @@
 import $ from '@veams/query';
 import Component from '@veams/component';
 
-class CTA extends Component {
+class Cta extends Component {
 	/**
 	 * General Properties
 	 */
@@ -89,11 +89,11 @@ class CTA extends Component {
 
 		if (this.options.closedLabel && !this.options.openedLabel ||
 			!this.options.closedLabel && this.options.openedLabel) {
-			console.warn('CTA: You have to set closedLabel and openedLabel or none.');
+			console.warn('Cta: You have to set closedLabel and openedLabel or none.');
 		}
 		else {
 			if (this.options.closedLabel && this.options.openedLabel && !this.$ctaContent.length) {
-				console.warn('CTA: Labels set, but ' + this.options.ctaContent +
+				console.warn('Cta: Labels set, but ' + this.options.ctaContent +
 					' not found, please make sure settings.ctaContentJsItem is set to true for c-cta__content.');
 			}
 		}
@@ -107,7 +107,7 @@ class CTA extends Component {
 		return this;
 	}
 	/** =================================================
-	 * CUSTOM CTA METHODS
+	 * CUSTOM Cta METHODS
 	 * ================================================= */
 	/**
 	 * Close method
@@ -163,7 +163,7 @@ class CTA extends Component {
 
 			this.clickHandler.apply(this, arguments);
 		} else {
-			console.warn('CTA: You need to inherit from ' + this +
+			console.warn('Cta: You need to inherit from ' + this +
 				' and override the onClick method or pass a function to ' +
 				this + '.clickHandler !');
 		}
@@ -186,4 +186,4 @@ class CTA extends Component {
 	}
 }
 
-export default CTA;
+export default Cta;

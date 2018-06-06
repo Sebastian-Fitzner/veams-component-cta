@@ -21,6 +21,6 @@
 ``` js
 // @INSERT :: START @tag: js-init-modules-@1 //
 // Init Call-To-Action
-Veams.modules.add({ namespace: 'cta', module: CTA });
+Veams.modules.add({ namespace: 'cta', module: Cta });
 // @INSERT :: END //
 ```
